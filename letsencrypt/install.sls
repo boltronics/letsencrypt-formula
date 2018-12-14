@@ -14,10 +14,12 @@ letsencrypt-client:
     - name: https://github.com/letsencrypt/letsencrypt
     - branch: {{ letsencrypt.version }}
     - target: {{ letsencrypt.cli_install_dir }}
+    - force_fetch: True
   {% else %}
   git.latest:
     - name: https://github.com/letsencrypt/letsencrypt
     - target: {{ letsencrypt.cli_install_dir }}
     - force_reset: True
+    - force_fetch: True
   {% endif %}
   {% endif %}
